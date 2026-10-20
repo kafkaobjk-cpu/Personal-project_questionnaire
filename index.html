@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FFF9E7">
+  <title>Food, Belonging & Life Abroad</title>
+  <style>
+    :root{--ink:#25342f;--muted:#69756f;--paper:#fbfaf7;--surface:#fff;--line:#e5e7df;--green:#315e4b;--green2:#eaf1eb;--gold:#d5a857;--red:#a13b32;--shadow:0 18px 55px #25342f12}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+    button,input,textarea,select{font:inherit} button{cursor:pointer} .shell{max-width:1040px;margin:auto;padding:28px 22px 72px}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px}.brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.01em}.languages{display:flex;gap:6px;padding:5px;border:1px solid var(--line);border-radius:999px;background:white}.lang{border:0;background:transparent;color:var(--muted);padding:8px 13px;border-radius:999px;font-size:14px}.lang[aria-pressed="true"]{background:var(--green);color:#fff}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;margin:14px 0 28px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:12px;color:var(--green);font-weight:750}.hero h1{font:650 clamp(36px,5vw,58px)/1.03 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:-.035em;margin:13px 0 16px;max-width:660px}.hero p{color:var(--muted);max-width:650px;margin:0}.hero-art{min-height:240px;border-radius:26px;background:linear-gradient(145deg,#e7eee7,#eee5d6);position:relative;overflow:hidden;display:grid;place-items:center;isolation:isolate}.table-grain{position:absolute;inset:0;background:repeating-linear-gradient(8deg,transparent 0 34px,#ffffff20 35px 37px);opacity:.65}.dish{position:absolute;display:grid;place-items:center;background:linear-gradient(145deg,#fffefa,#e9e6d9);border:9px solid #d6dacf;box-shadow:0 16px 28px #35423525,inset 0 0 0 5px #f8f7f0;z-index:1}.dish:before{content:"";display:block;width:67%;height:67%;border-radius:50%;background:radial-gradient(circle at 32% 40%,#d79554 0 13%,transparent 14%),radial-gradient(circle at 68% 32%,#718d6c 0 14%,transparent 15%),radial-gradient(circle at 60% 70%,#b96c50 0 14%,transparent 15%),radial-gradient(circle at 33% 69%,#a9b77a 0 13%,transparent 14%),#f2d69e;box-shadow:0 0 0 5px #f4f0e4}.dish-main{width:154px;height:154px;border-radius:50%;left:34%;top:17%}.dish-side{width:112px;height:92px;border-radius:38% 62% 55% 45%;left:8%;top:45%;transform:rotate(-13deg);border-width:7px}.dish-side:before{background:radial-gradient(circle at 34% 38%,#6f8d68 0 14%,transparent 15%),radial-gradient(circle at 65% 57%,#d79655 0 15%,transparent 16%),radial-gradient(circle at 43% 68%,#d2bd7c 0 14%,transparent 15%),#e9d9b0}.dish-oval{width:128px;height:88px;border-radius:50%;right:7%;top:49%;transform:rotate(12deg);border-width:7px}.dish-oval:before{background:radial-gradient(ellipse at 36% 48%,#bd694c 0 19%,transparent 20%),radial-gradient(ellipse at 66% 52%,#8ca16e 0 18%,transparent 19%),#ead59f}
+    .notice{border:1px solid #e9dfc8;background:#fffaf0;border-radius:13px;padding:14px 17px;color:#615741;font-size:14px;margin:22px 0 0}.notice strong{color:#3b4031}.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start;margin-top:28px}.sidebar,.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}.sidebar{padding:18px;position:sticky;top:18px}.sidebar h2{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.11em;margin:3px 8px 15px}.step{display:flex;align-items:center;gap:12px;padding:10px 9px;border-radius:12px;color:var(--muted);font-size:14px;margin:3px 0;border:0;background:transparent;width:100%;text-align:left;font-family:inherit}.step:hover{background:#f6f8f4;color:var(--green)}.step .num{display:none}.step.active{background:var(--green2);color:var(--green);font-weight:700}.step.active .num,.step.done .num{background:var(--green);border-color:var(--green);color:white}.step.done{color:var(--green)}.card{padding:clamp(22px,4vw,42px);min-height:490px}.card-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:21px;margin-bottom:24px}.card-head .kicker{font-size:12px;color:var(--green);font-weight:750;letter-spacing:.1em;text-transform:uppercase}.card-head h2{font:650 30px/1.15 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;margin:7px 0 5px}#pageKicker,#pageCount{display:none}.card-head p{margin:0;color:var(--muted);font-size:14px}.page-count{border-radius:999px;padding:7px 11px;background:#f3f4ef;color:var(--muted);font-size:12px;white-space:nowrap}
+    .field{margin:0 0 24px}.field-label{display:block;font-weight:650;margin:0 0 10px}.required{color:var(--red);margin-left:4px}.hint{font-size:13px;color:var(--muted);margin:-5px 0 10px}.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fff;transition:.15s ease;min-height:48px}.choice:hover{border-color:#9cb5a3;background:#fbfdfb}.choice:has(input:checked){border-color:var(--green);background:#f2f7f2;box-shadow:inset 0 0 0 1px var(--green)}.choice input{accent-color:var(--green);margin:4px 0 0;flex:0 0 auto}.text-input,textarea{display:block;width:100%;border:1px solid var(--line);border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);outline:0}.text-input:focus,textarea:focus{border-color:var(--green);box-shadow:0 0 0 3px #315e4b18}textarea{min-height:160px;resize:vertical}.error{color:var(--red);font-size:13px;margin-top:7px;display:none}.field.invalid .error{display:block}.field.invalid .choice{border-color:#d38a82}.actions{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:20px;margin-top:30px}.btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:11px;padding:11px 17px;font-weight:650}.btn:hover{border-color:#a4b5a8}.btn.primary{background:var(--green);border-color:var(--green);color:#fff}.btn.primary:hover{background:#274b3b}.btn:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}.welcome-check{margin-top:24px;border:1px solid var(--line);border-radius:13px;padding:14px;background:#fff}.welcome-check label{display:flex;gap:11px;align-items:flex-start;font-size:14px}.welcome-check input{accent-color:var(--green);margin-top:4px}.welcome-error{color:var(--red);font-size:13px;margin:8px 0 0;display:none}.welcome-check.invalid .welcome-error{display:block}.ending{text-align:center;padding:64px 16px}.ending .icon{font-size:44px}.ending h2{font:650 34px Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;margin:12px 0}.ending p{color:var(--muted);max-width:560px;margin:0 auto 20px}.fineprint{text-align:center;color:#8a948e;font-size:12px;margin-top:20px}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#24352d;color:#fff;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:10;max-width:calc(100vw - 28px);font-size:14px}
+    @media(max-width:760px){.shell{padding:18px 14px 42px}.top{align-items:flex-start;flex-direction:column;margin-bottom:22px}.hero{grid-template-columns:1fr;gap:20px;margin-top:0}.hero-art{min-height:170px}.dish-main{width:112px;height:112px;top:16%;left:38%}.dish-side{width:80px;height:66px;left:7%;top:48%}.dish-oval{width:91px;height:62px;right:5%;top:50%}.layout{grid-template-columns:1fr;gap:13px}.sidebar{position:static;padding:12px 14px}.sidebar h2{margin:2px 5px 8px}.steps{display:flex;overflow:auto;gap:5px}.step{min-width:max-content;padding:7px}.step .num{width:24px;height:24px;flex-basis:24px}.card{min-height:0;padding:22px 18px}.card-head h2{font-size:26px}.choices{grid-template-columns:1fr}.actions{margin-top:24px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+    /* Editorial, geometric visual system based on the supplied brochure reference */
+    :root{--ink:#18264a;--muted:#5f604f;--paper:#fff9e7;--surface:#fffdf5;--line:#e7dcc0;--green:#18264a;--green2:#fff0bc;--gold:#fecc54;--red:#a13b32;--shadow:0 8px 0 #18264a0b}
+    body{background:var(--paper);font-size:16px;line-height:1.52}
+    .shell{max-width:1180px;padding:28px 30px 64px}
+    .top{padding:0 0 18px;margin-bottom:28px;border-bottom:2px solid var(--ink)}
+    .brand{font-size:14px;letter-spacing:.08em;color:var(--ink)}
+    .languages{border:1px solid var(--ink);border-radius:3px;background:var(--surface);padding:3px;gap:2px}
+    .lang{border-radius:2px;color:var(--ink);font-size:14px;font-weight:650;padding:8px 14px}
+    .lang[aria-pressed="true"]{background:var(--gold);color:var(--ink)}
+    .hero{grid-template-columns:1.05fr .95fr;gap:32px;margin:20px 0 26px}
+    .hero h1{font-size:clamp(34px,4.2vw,50px);line-height:1.06;letter-spacing:-.045em;font-weight:800;margin:9px 0 14px;max-width:600px}
+    .hero p{font-size:16px;max-width:570px}
+    .eyebrow{font-size:11px;letter-spacing:.16em;color:var(--ink)}
+    .hero-art{min-height:230px;border-radius:0;background:var(--gold);border:1px solid var(--ink)}
+    .table-grain{background:linear-gradient(90deg,transparent 49.6%,#18264a12 50%,transparent 50.4%),linear-gradient(transparent 49.6%,#18264a12 50%,transparent 50.4%);background-size:42px 42px;opacity:.42}
+    .dish{background:var(--paper);border:4px solid var(--ink);box-shadow:7px 7px 0 #18264a24,inset 0 0 0 4px #fecc54}
+    .dish:before{background:radial-gradient(circle at 32% 40%,#fecc54 0 13%,transparent 14%),radial-gradient(circle at 68% 32%,#18264a 0 14%,transparent 15%),radial-gradient(circle at 60% 70%,#df9f38 0 14%,transparent 15%),radial-gradient(circle at 33% 69%,#d9b961 0 13%,transparent 14%),#fff9e7;box-shadow:0 0 0 4px #fecc54}
+    .dish-side:before{background:radial-gradient(circle at 34% 38%,#18264a 0 14%,transparent 15%),radial-gradient(circle at 65% 57%,#fecc54 0 15%,transparent 16%),radial-gradient(circle at 43% 68%,#d9b961 0 14%,transparent 15%),#fff9e7}
+    .dish-oval:before{background:radial-gradient(ellipse at 36% 48%,#df9f38 0 19%,transparent 20%),radial-gradient(ellipse at 66% 52%,#18264a 0 18%,transparent 19%),#fff9e7}
+    .notice{border:1px solid var(--ink);border-left:7px solid var(--gold);border-radius:0;background:var(--surface);padding:13px 16px;color:var(--muted);box-shadow:4px 4px 0 #18264a0b}
+    .notice strong{color:var(--ink)}
+    .layout{grid-template-columns:224px minmax(0,1fr);gap:20px;margin-top:26px}
+    .sidebar,.card{border:1px solid var(--ink);border-radius:0;box-shadow:5px 5px 0 #18264a12}
+    .sidebar{background:#f5eac9;padding:16px;top:16px}
+    .sidebar h2{color:var(--ink);font-size:11px;letter-spacing:.15em;margin:3px 6px 12px}
+    .step{border-radius:0;border-left:3px solid transparent;padding:10px 8px;font-size:14px;color:var(--ink);line-height:1.35}
+    .step:hover{background:#fff9e7;color:var(--ink)}
+    .step.active{background:var(--gold);color:var(--ink);border-left-color:var(--ink);font-weight:750}
+    .step.done{color:var(--ink)}
+    .card{background:var(--surface);padding:clamp(24px,4vw,42px);min-height:490px}
+    .card-head{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+    .card-head .kicker{font-size:10px;color:var(--ink);letter-spacing:.16em}
+    .card-head h2{font-size:clamp(23px,2.7vw,30px);line-height:1.16;font-weight:800;letter-spacing:-.025em;margin:6px 0}
+    .card-head p{font-size:14px;line-height:1.55}
+    .field{margin:0 0 27px}
+    .field-label{font-size:17px;line-height:1.45;font-weight:750;margin:0 0 12px}
+    .choices{gap:8px}
+    .choice{border:1px solid #d9ceb0;border-radius:0;padding:12px 13px;background:#fffef9;min-height:50px;line-height:1.4}
+    .choice:hover{border-color:var(--ink);background:#fff9e7}
+    .choice:has(input:checked){border-color:var(--ink);background:var(--gold);box-shadow:inset 0 0 0 1px var(--ink)}
+    .choice input{accent-color:var(--ink)}
+    .text-input,textarea{border:1px solid #b9ad8c;border-radius:0;background:#fffef9;padding:13px 14px;font-size:16px}
+    .text-input:focus,textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px #fecc5455}
+    textarea{min-height:150px}
+    .actions{border-top:2px solid var(--ink);padding-top:18px;margin-top:28px}
+    .btn{border:1px solid var(--ink);border-radius:0;background:var(--surface);color:var(--ink);padding:11px 18px;font-size:14px;font-weight:750;box-shadow:3px 3px 0 #18264a17}
+    .btn:hover{border-color:var(--ink);background:#fff0bc}
+    .btn.primary{background:var(--gold);border-color:var(--ink);color:var(--ink)}
+    .btn.primary:hover{background:#f4bd3d}
+    .ending h2{font-weight:800}
+    .toast{border-radius:0;background:var(--ink)}
+    .fineprint{color:#6e684f}
+    @media(max-width:760px){.shell{padding:16px 14px 40px}.top{border-bottom-width:1px}.hero-art{min-height:170px}.layout{grid-template-columns:1fr;gap:12px}.sidebar{padding:12px;background:#f5eac9}.step{border-left:0;border-bottom:3px solid transparent;padding:8px}.step.active{border-left:0;border-bottom-color:var(--ink)}.card{padding:22px 17px}.field-label{font-size:16px}.choice{padding:11px}.actions{border-top-width:1px}}
+  
+    /* Warm muted yellow refresh: keep geometric forms, soften borders and spacing */
+    :root{--ink:#514b3e;--muted:#827966;--paper:#FFF9E7;--surface:#fffdf6;--line:#e8dfc7;--green:#b18d39;--green2:#f8edcb;--gold:#FECC54;--red:#a64d42;--shadow:0 8px 26px rgba(104,83,33,.07)}
+    body{background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.6}
+    .shell{max-width:1120px;padding:30px 34px 62px}
+    .top{border-bottom:1px solid #e8dfc7;padding-bottom:18px;margin-bottom:30px}
+    .brand{font-size:13px;letter-spacing:.11em;color:#625943}
+    .languages{background:#fffdf6;border:1px solid #e8dfc7;border-radius:999px;padding:4px;gap:2px}
+    .lang{border-radius:999px;padding:8px 15px;color:#756d5b;font-size:13px}
+    .lang[aria-pressed="true"]{background:#FECC54;color:#514b3e}
+    .hero{grid-template-columns:1fr .9fr;gap:46px;margin:20px 0 32px}
+    .eyebrow{color:#9b7a31;font-size:11px;letter-spacing:.17em}
+    .hero h1{font-size:clamp(34px,4vw,48px);font-weight:750;line-height:1.08;letter-spacing:-.04em;color:#514b3e;margin:10px 0 15px}
+    .hero p{font-size:15px;line-height:1.7;color:#756e5e}
+    .hero-art{min-height:250px;border:0;border-radius:4px;background:#FFF9E7;box-shadow:none;isolation:isolate}
+    .hero-art:before{content:"";position:absolute;width:80%;aspect-ratio:1;border-radius:50%;right:-17%;top:-63%;background:#FECC54;z-index:-1}
+    .hero-art:after{content:"";position:absolute;width:43%;aspect-ratio:1;border-radius:50% 50% 4px 50%;left:-12%;bottom:-39%;background:#edc55e;z-index:-1}
+    .table-grain{background:none;opacity:0}
+    .dish{background:#fffdf6;border:5px solid #f4e7bf;box-shadow:0 10px 24px rgba(104,83,33,.12),inset 0 0 0 3px #fff9e7}
+    .dish:before{background:radial-gradient(circle at 32% 40%,#d8a84d 0 13%,transparent 14%),radial-gradient(circle at 68% 32%,#b28e4d 0 14%,transparent 15%),radial-gradient(circle at 60% 70%,#c7835a 0 14%,transparent 15%),radial-gradient(circle at 33% 69%,#c9ad68 0 13%,transparent 14%),#f5dfaa;box-shadow:0 0 0 4px #f7edcf}
+    .dish-side:before{background:radial-gradient(circle at 34% 38%,#ba9a58 0 14%,transparent 15%),radial-gradient(circle at 65% 57%,#d8a84d 0 15%,transparent 16%),radial-gradient(circle at 43% 68%,#c9ad68 0 14%,transparent 15%),#f5dfaa}
+    .dish-oval:before{background:radial-gradient(ellipse at 36% 48%,#c7835a 0 19%,transparent 20%),radial-gradient(ellipse at 66% 52%,#b28e4d 0 18%,transparent 19%),#f5dfaa}
+    .notice{border:0;border-left:3px solid #FECC54;border-radius:2px;background:#f6edcf;padding:12px 16px;color:#716852;box-shadow:none;margin-top:20px}
+    .notice strong{color:#514b3e}
+    .layout{grid-template-columns:220px minmax(0,1fr);gap:34px;margin-top:30px}
+    .sidebar{position:sticky;top:18px;padding:12px 0;background:transparent;border:0;border-radius:0;box-shadow:none}
+    .sidebar h2{font-size:11px;letter-spacing:.14em;color:#9b7a31;margin:4px 10px 15px}
+    .step{padding:11px 12px;margin:5px 0;gap:10px;border:0;border-left:3px solid transparent;border-radius:0;background:transparent;color:#716a59;font-size:14px;line-height:1.45}
+    .step:hover{background:rgba(254,204,84,.12);color:#514b3e}
+    .step.active{border-left-color:#d7a62d;background:transparent;color:#514b3e;font-weight:750}
+    .step.done{color:#827966}
+    .card{min-height:450px;padding:clamp(26px,4vw,44px);background:#fffdf7;border:1px solid #eee5ce;border-radius:4px;box-shadow:0 12px 34px rgba(104,83,33,.07)}
+    .card-head{border-bottom:1px solid #e8dfc7;padding-bottom:20px;margin-bottom:26px}
+    .card-head .kicker{font-size:10px;letter-spacing:.15em;color:#a08035}
+    .card-head h2{font-size:clamp(23px,2.5vw,29px);font-weight:750;line-height:1.2;letter-spacing:-.025em;color:#514b3e;margin:7px 0}
+    .card-head p{font-size:14px;line-height:1.65;color:#817865}
+    .field{margin:0 0 30px}
+    .field-label{font-size:16px;font-weight:680;line-height:1.55;margin-bottom:13px;color:#514b3e}
+    .choices{gap:9px}
+    .choice{min-height:48px;padding:12px 14px;border:1px solid #e9e0ca;border-radius:3px;background:#fffefa;color:#625b4c;line-height:1.45;font-size:14px}
+    .choice:hover{border-color:#d9bd75;background:#fffaf0}
+    .choice:has(input:checked){border-color:#d4aa4b;background:#faedc6;box-shadow:none;color:#514b3e}
+    .choice input{accent-color:#b18d39}
+    .text-input,textarea{border:1px solid #e2d8bf;border-radius:3px;background:#fffefa;padding:13px 15px;color:#514b3e;font-size:15px}
+    .text-input:focus,textarea:focus{border-color:#d4aa4b;box-shadow:0 0 0 3px rgba(254,204,84,.2)}
+    textarea{min-height:145px}
+    .actions{border-top:1px solid #e8dfc7;padding-top:18px;margin-top:30px}
+    .btn{border:1px solid #e0d5b9;border-radius:3px;background:#fffdf6;color:#625b4c;padding:11px 18px;font-size:14px;font-weight:650;box-shadow:none}
+    .btn:hover{border-color:#d4aa4b;background:#fff8e6}
+    .btn.primary{background:#FECC54;border-color:#e8b941;color:#514b3e}
+    .btn.primary:hover{background:#f2bd3e}
+    .ending h2{font-size:30px;color:#514b3e}
+    .toast{border-radius:4px;background:#655a40}
+    .fineprint{color:#958b75}
+    @media(max-width:760px){.shell{padding:18px 15px 42px}.top{margin-bottom:24px}.hero{grid-template-columns:1fr;gap:22px}.hero-art{min-height:190px}.layout{grid-template-columns:1fr;gap:12px}.sidebar{position:static;padding:10px 0 4px}.sidebar h2{margin:0 5px 7px}.steps{display:flex;overflow:auto;gap:3px;padding:2px 0 7px}.step{min-width:max-content;width:auto;padding:8px 10px;margin:0;border-left:0;border-bottom:2px solid transparent}.step.active{border-bottom-color:#d7a62d}.card{min-height:0;padding:24px 19px}.choices{grid-template-columns:1fr}.field-label{font-size:15px}.actions{margin-top:24px}}
+  
+    
+    .sidebar h2{display:none}
+    .hero-art{background:#FFF9E7;border:0;box-shadow:none;overflow:hidden}
+    .hero-art:before,.hero-art:after{content:none}
+    .table-grain{display:none}
+    .dish{background:#FECC54;border:8px solid #f0d783;box-shadow:0 9px 22px rgba(115,91,42,.13),inset 0 0 0 4px #FFF9E7}
+    .dish:before{background:radial-gradient(circle at 32% 40%,#d8a84d 0 13%,transparent 14%),radial-gradient(circle at 68% 32%,#b28e4d 0 14%,transparent 15%),radial-gradient(circle at 60% 70%,#c7835a 0 14%,transparent 15%),radial-gradient(circle at 33% 69%,#c9ad68 0 13%,transparent 14%),#f5dfaa;box-shadow:0 0 0 4px #FFF9E7}
+    .dish-main{width:168px;height:168px;border-radius:50%;left:auto;right:5%;top:-13%}
+    .dish-side{width:120px;height:84px;border-radius:20px;left:8%;top:55%;transform:none;border-width:7px;background:#edc55e}
+    .dish-side:before{background:radial-gradient(circle at 34% 38%,#ba9a58 0 14%,transparent 15%),radial-gradient(circle at 65% 57%,#d8a84d 0 15%,transparent 16%),radial-gradient(circle at 43% 68%,#c9ad68 0 14%,transparent 15%),#f5dfaa}
+    .dish-oval{width:138px;height:94px;border-radius:50%;right:14%;top:54%;bottom:auto;transform:none;border-width:7px;background:#f1d37d}
+    .dish-oval:before{background:radial-gradient(ellipse at 36% 48%,#c7835a 0 19%,transparent 20%),radial-gradient(ellipse at 66% 52%,#b28e4d 0 18%,transparent 19%),#f5dfaa}
+    @media(max-width:760px){.dish-main{width:122px;height:122px;right:5%;top:-9%;left:auto}.dish-side{width:94px;height:66px;left:6%;top:58%}.dish-oval{width:104px;height:72px;right:13%;top:57%}}
+  
+    .hero-art{height:320px;min-height:320px;background:transparent;overflow:hidden}
+    .hero-image{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+    .hero-art:before,.hero-art:after{content:none}
+    @media(max-width:760px){.hero-art{height:250px;min-height:250px}}
+  </style>
+</head>
+<body>
+<main class="shell">
+  <header class="top">
+    <div class="brand"><span>FIELD NOTES · RESEARCH SURVEY</span></div>
+    <nav class="languages" aria-label="Language / 语言 / Langue">
+      <button class="lang" type="button" data-lang="zh" aria-pressed="true">中文</button>
+      <button class="lang" type="button" data-lang="en" aria-pressed="false">English</button>
+      <button class="lang" type="button" data-lang="fr" aria-pressed="false">Français</button>
+    </nav>
+  </header>
+
+  <section class="hero" id="hero">
+    <div><h1 data-i18n="title"></h1><p data-i18n="subtitle"></p>
+      <div class="notice"><strong data-i18n="draftLabel"></strong> <span data-i18n="draftNotice"></span></div>
+    </div>
+    <div class="hero-art"><img class="hero-image" src="poster_web.png" alt=""></div>
+  </section>
+
+  <div class="layout" id="surveyLayout">
+    <aside class="sidebar"><h2 data-i18n="contents"></h2><div class="steps" id="steps"></div></aside>
+    <section class="card" aria-live="polite">
+      <div id="welcomeView">
+        <div class="card-head"><div><div class="kicker" data-i18n="welcomeKicker"></div><h2 data-i18n="welcomeTitle"></h2><p data-i18n="welcomeText"></p></div></div>
+        <div class="notice"><strong data-i18n="privacyTitle"></strong> <span data-i18n="privacyText"></span></div>
+        <div class="actions"><span></span><button class="btn primary" id="startBtn" type="button" data-i18n="start"></button></div>
+      </div>
+      <div id="formView" class="hidden">
+        <div class="card-head"><div><div class="kicker" id="pageKicker"></div><h2 id="pageTitle"></h2><p id="pageDescription"></p></div><span class="page-count" id="pageCount"></span></div>
+        <form id="pageForm" novalidate><div id="fields"></div></form>
+        <div class="actions"><button class="btn" id="backBtn" type="button"></button><button class="btn primary" id="nextBtn" type="button"></button></div>
+      </div>
+      <div id="endingView" class="hidden"></div>
+    </section>
+  </div>
+  <p class="fineprint" data-i18n="footer"></p>
+</main>
+<div id="toast" class="toast hidden" role="status"></div>
+
+<script>
+/* Add a submission endpoint here to collect answers centrally. Leave blank for local preview. */
+const SUBMISSION_ENDPOINT = "";
+
+const copy = {
+ zh:{
+  eyebrow:"毕业论文研究问卷",title:"跨文化饮食、生活与归属感",subtitle:"了解人们在异国生活时如何通过熟悉的食物与日常做饭适应新的生活环境。",draftLabel:"草稿模式：",draftNotice:"目前这份静态页面不会把回答发送给研究者。完成后可下载答卷 JSON；部署收集前需连接收集服务。",contents:"问卷内容",welcomeKicker:"开始之前",welcomeTitle:"关于这份问卷",welcomeText:"问卷关注你在出生国或成长国以外居住时的做饭经历、食材选择与调整，以及这些经历对你的意义。预计用时约 5–8 分钟。",privacyTitle:"隐私说明：",privacyText:"本页面不询问姓名或联系方式。当前草稿不会上传或汇总答卷；请勿在开放题中填写可识别个人身份的信息。正式收集前，请补充研究者、数据存储与联系信息。",consent:"我已阅读以上说明，并自愿继续填写。",consentError:"请先勾选同意后继续。",start:"开始问卷",back:"上一步",next:"下一步",submit:"完成问卷",page:"第",of:"页，共",multiMark:"（可多选）",twoRequired:"请选择两项后继续。",twoMax:"最多只能选择两项。",required:"请回答此题后继续。",choose:"请填写",other:"其他，请注明",otherPlaceholder:"请注明",endScreen:"感谢你的时间",endText:"本研究面向曾在异国生活的人，因此问卷到此结束。感谢你的参与。",thankTitle:"感谢分享你的经历",thankText:"你的回答已准备好。当前草稿只在本设备生成下载文件；尚未发送给研究者。",download:"下载我的回答",restart:"重新填写",footer:"研究问卷草稿 · 可在页面顶部切换语言",offlineSaved:"已下载答卷 JSON 文件。",sent:"答卷已提交。",sendFail:"无法连接收集服务。请下载回答文件并交给研究者。",missingEndpoint:"这是预览草稿：当前没有配置在线收集服务。",pages:[
+   {title:"居住背景与做饭条件",desc:"先了解你的居住经历和日常做饭环境。"},{title:"食材与烹饪挑战",desc:"以下问题关注陌生食材，以及熟悉菜肴所需食材的获取与调整。"},{title:"一次具体的做饭经历",desc:"请按自己的实际经历回答；没有相关经历也完全可以。"},{title:"跨文化学习与分享",desc:"最后了解不同文化背景的人之间的饮食交流。"},{title:"工具功能需求",desc:"了解哪些具体的数字功能能帮助你认识食材、购买食材或完成做饭。"}],
+  q:{q1:"你是否曾在异国居住？",q2:"你曾经或目前在哪些国家居住？",q3:"你在目前或最近一次居住的国家居住了多久？",q4:"你目前的居住方式是什么？",q5:"你目前可以使用什么样的厨房或做饭设施？",q6:"过去一个月，你自己做饭的频率是？",q7:"在居住国生活时，你遇到不熟悉、或不知道如何选择、处理或烹饪的食材的频率是？",q8:"遇到不熟悉的食材时，你通常会怎么做？（可多选）",q9:"你是否曾因为不知道如何使用某种食材而放弃购买？",q10:"你是否曾找不到制作家乡或熟悉菜肴时常用的食材？",q11:"找不到常用食材时，你通常会怎么做？（可多选）",q12:"什么情况会让你愿意购买或尝试一种不熟悉的食材？（可多选）",q13:"你是否曾用当地食材制作或改做家乡或熟悉的菜肴？",q14:"请描述一次你在居住国为自己做饭的具体经历。你做了什么菜？你是怎么准备的？有没有更换食材或调整做法步骤？如果你没有相关经历，请直接说明。",q15:"这次做饭经历对你与熟悉食物的关系，或你对在居住国生活的感受有什么影响？如无影响，请填写无影响；如有，请举例说明。",q16:"你是否曾从不同文化背景的人那里学到新的食材用法或烹饪方法？",q17:"你是否曾向不同文化背景的人介绍或示范你熟悉的食材或菜肴做法？",q18:"请描述一次你和不同文化背景的人一起讨论或准备某种食材或菜肴的具体经历。你们各自分享或学到了什么？这次交流有没有改变你做这道菜的方式？如果没有相关经历，请填写没有相关经历。",q19:"为了帮助你在居住国购买、理解或使用食材，哪些数字功能会对你有帮助？（可多选）",q20:"在上面提到的功能中，请选择对你最有帮助的两项。",q21:"你最可能在什么时候或什么场景使用这些功能？（可多选）",q22:"如果查看食谱或食材说明，你最希望看到哪些信息？（可多选）"},
+  opts:{abroad:["目前正在居住","过去曾经居住","只短期停留或旅游，从未在当地居住","从未在其他国家居住"],countries:["法国","德国","英国","中国","西班牙","意大利","比利时","荷兰","葡萄牙","瑞士","爱尔兰"],duration:["少于3个月","3–6个月","6–12个月","1–3年","3年以上","不适用"],living:["独自居住","与同国籍的人合租","与不同国籍的人合租","学生公寓","与家人同住","寄宿家庭","其他，请注明"],kitchen:["私人厨房","与室友共用厨房","公共厨房","没有可使用的厨房","其他，请注明"],frequency:["几乎每天","每周2–4次","大约每周一次","少于每周一次","从不"],freq4:["经常","有时","很少","从未"],response:["网上搜索","查找食谱或视频","询问朋友或家人","询问当地人或店员","了解后购买并尝试","不购买","其他，请注明"],missing:["去专门食品店购买","在线订购","用当地相似食材替代","调整做法或省略该食材","放弃做这道菜","其他，请注明"],motivation:["有人推荐","知道如何烹饪","容易买到","价格合适","与熟悉的食物相似","出于好奇","有相关食谱或视频","其他，请注明"],yesFreq:["经常","有时","有过一次","从未"],adapted:["很多次","有几次","有过一次","从未"],needFeatures:["为熟悉菜肴推荐当地可替代食材","根据现有食材推荐食谱","拍照识别不熟悉的食材，并说明名称和常见用法","扫描或翻译食品包装上的名称、成分和烹饪说明","扫描或翻译商店价签，并解释计价单位或价格","比较不同品牌或包装的单价","提供分步骤图文或视频做法","介绍当地人如何使用某种食材","以上功能都不需要","其他，请注明"],topNeed:["为熟悉菜肴推荐当地替代食材","根据现有食材推荐食谱","拍照识别食材并说明用法","扫描或翻译食品包装","扫描或翻译商店价签和计价单位","比较产品单价","分步骤烹饪指导","介绍当地食材用法"],needMoments:["购买前计划菜单或购物清单时","在超市或食品店挑选食材时","查看包装、价签或说明时","在家准备或烹饪时","尝试一道当地菜或新食材时","与他人分享或讨论食物时","其他，请注明"],recipeInfo:["食材照片及当地名称","熟悉食材与当地替代品的对应说明","每一步的清晰图片或视频","烹饪时间和难度","份量、用量及计量单位换算","大致花费或单价信息","保存和处理食材的方法","这道菜或食材的文化背景","其他，请注明"]}
+ },
+ en:{
+  eyebrow:"Undergraduate research survey",title:"Food, Belonging & Life Abroad",subtitle:"Explore how familiar foods and everyday cooking help people adapt to life in another country.",draftLabel:"Draft mode:",draftNotice:"This static page does not send answers to the researcher. You can download your answers as JSON; a collection service must be connected before recruiting respondents.",contents:"Survey sections",welcomeKicker:"Before you begin",welcomeTitle:"About this survey",welcomeText:"This survey asks about cooking, choosing ingredients, and adapting familiar dishes while living outside your country of birth or upbringing—and what these experiences mean to you. It takes about 8–10 minutes.",privacyTitle:"Privacy:",privacyText:"This page does not ask for your name or contact details. This draft does not upload or collect responses; please do not include identifying information in open answers. Before formal data collection, add researcher, storage, and contact details.",consent:"I have read the information above and voluntarily agree to continue.",consentError:"Please check the consent box before continuing.",start:"Start survey",back:"Back",next:"Continue",submit:"Finish survey",page:"Page",of:"of",required:"Please answer this question to continue.",multiMark:" (Select all that apply)",twoRequired:"Please select exactly two options.",twoMax:"You can select only two options.",choose:"Please fill in",other:"Other (please specify)",otherPlaceholder:"Please specify",endScreen:"Thank you for your time",endText:"This study is for people who have lived abroad, so the survey ends here. Thank you for taking part.",thankTitle:"Thank you for sharing your experience",thankText:"Your answers are ready. In this draft they are downloaded on this device and have not been sent to the researcher.",download:"Download my answers",restart:"Start again",footer:"Research survey draft · Change language at the top of the page",offlineSaved:"Your answers JSON file has been downloaded.",sent:"Your response has been submitted.",sendFail:"Could not connect to the response service. Please download your answers and send them to the researcher.",missingEndpoint:"This is a preview draft: no online response service is configured.",pages:[
+   {title:"Residence & cooking context",desc:"First, a little about where you have lived and your everyday cooking environment."},{title:"Ingredients & cooking challenges",desc:"These questions ask about unfamiliar ingredients and finding or adapting ingredients for familiar dishes."},{title:"A specific cooking experience",desc:"Answer from your own experience. It is completely fine if you have no related experience."},{title:"Cross-cultural learning & sharing",desc:"Finally, a few questions about food-related exchange across cultural backgrounds."},{title:"Support and feature needs",desc:"Tell us which specific digital features could help you understand ingredients, shop, or cook."}],
+  q:{q1:"Have you ever lived abroad?",q2:"In which country or countries have you lived?",q3:"How long have you lived in your current or most recent country of residence?",q4:"What is your current living arrangement?",q5:"What kitchen or cooking facilities can you currently use?",q6:"During the past month, how often have you cooked for yourself?",q7:"While living abroad, how often do you encounter ingredients that are unfamiliar or that you do not know how to choose, prepare, or cook?",q8:"What do you usually do when you encounter an unfamiliar ingredient? (Select all that apply)",q9:"Have you ever decided not to buy an ingredient because you did not know how to use it?",q10:"Have you ever been unable to find ingredients you commonly use for familiar or home dishes?",q11:"When you cannot find an ingredient you commonly use, what do you usually do? (Select all that apply)",q12:"What might make you willing to buy or try an unfamiliar ingredient? (Select all that apply)",q13:"Have you ever made or adapted a familiar or home dish using locally available ingredients?",q14:"Please describe one specific time you cooked for yourself in your country of residence. What did you make, how did you prepare it, and did you change any ingredients or steps? If you have not had a relevant cooking experience, please say so.",q15:"How, if at all, did this cooking experience affect your relationship with familiar foods or your feelings about living in your country of residence? If it had no effect, please write No effect; otherwise, please explain.",q16:"Have you learned a new way to use an ingredient or a cooking method from someone with a different cultural background?",q17:"Have you introduced or demonstrated a familiar ingredient or dish to someone from a different cultural background?",q18:"Describe a specific occasion when you discussed an ingredient or prepared a dish with someone from a different cultural background. What did each of you share or learn, and did the exchange change how you prepare the dish? If you have no relevant experience, please say so.",q19:"Which digital features would help you buy, understand, or use ingredients in your country of residence? (Select all that apply)",q20:"Among the features above, choose the two that would be most useful to you.",q21:"When or where would you be most likely to use these features? (Select all that apply)",q22:"When viewing a recipe or ingredient guide, what information would you most want to see? (Select all that apply)"},
+  opts:{abroad:["Currently living abroad","Lived abroad in the past","Only visited or stayed briefly; never lived there","Never lived in another country"],countries:["France","Germany","United Kingdom","China","Spain","Italy","Belgium","Netherlands","Portugal","Switzerland","Ireland"],duration:["Less than 3 months","3–6 months","6–12 months","1–3 years","More than 3 years","Not applicable"],living:["Live alone","Share with people of the same nationality","Share with people of different nationalities","Student residence","Live with family","Homestay","Other (please specify)"],kitchen:["Private kitchen","Kitchen shared with housemates","Communal kitchen","No access to a kitchen","Other (please specify)"],frequency:["Almost every day","2–4 times a week","About once a week","Less than once a week","Never"],freq4:["Often","Sometimes","Rarely","Never"],response:["Search online","Look for a recipe or video","Ask friends or family","Ask local people or shop staff","Learn about it, then buy and try it","Do not buy it","Other (please specify)"],missing:["Buy it at a specialty food shop","Order it online","Substitute a similar local ingredient","Adapt the recipe or omit the ingredient","Give up making the dish","Other (please specify)"],motivation:["Someone recommends it","I know how to cook it","It is easy to find","It is affordable","It is similar to familiar foods","Curiosity","A recipe or video is available","Other (please specify)"],yesFreq:["Often","Sometimes","Once","Never"],adapted:["Many times","A few times","Once","Never"],needFeatures:["Suggestions for local substitutes in familiar dishes","Recipe suggestions based on ingredients I already have","Photo recognition of unfamiliar ingredients, with their names and common uses","Scan or translate food package names, ingredients, and cooking instructions","Scan or translate shop price labels and explain units or pricing","Compare unit prices across brands or package sizes","Step-by-step cooking instructions with images or video","Explain how local people commonly use an ingredient","None of these features","Other (please specify)"],topNeed:["Local substitutes for familiar dishes","Recipes based on ingredients I have","Photo recognition and ingredient information","Scan or translate food packaging","Scan or translate shop price labels and units","Compare unit prices","Step-by-step cooking guidance","Information on local ingredient uses"],needMoments:["Planning a menu or shopping list","Choosing ingredients in a supermarket or food shop","Reading packaging, price labels, or instructions","Preparing or cooking at home","Trying a local dish or unfamiliar ingredient","Sharing or discussing food with someone","Other (please specify)"],recipeInfo:["Photos and local names of ingredients","Suggestions for familiar or locally available substitutes","Clear images or video for each step","Cooking time and difficulty","Serving sizes, quantities, and measurement conversions","Estimated cost or unit-price information","How to store or prepare ingredients","Cultural context about the dish or ingredient","Other (please specify)"]}
+ },
+ fr:{
+  eyebrow:"Enquête de recherche de fin d’études",title:"Alimentation, appartenance et vie à l’étranger",subtitle:"Comprendre comment les aliments familiers et la cuisine quotidienne aident à s’adapter à la vie dans un autre pays.",draftLabel:"Mode brouillon :",draftNotice:"Cette page statique n’envoie pas les réponses à la personne qui mène l’étude. Vous pouvez télécharger vos réponses au format JSON ; un service de collecte devra être connecté avant la diffusion.",contents:"Rubriques",welcomeKicker:"Avant de commencer",welcomeTitle:"À propos de cette enquête",welcomeText:"Cette enquête porte sur la cuisine, le choix des ingrédients et l’adaptation de plats familiers lorsque l’on vit hors de son pays de naissance ou de celui où l’on a grandi, ainsi que sur le sens de ces expériences. Durée estimée : 8 à 10 minutes.",privacyTitle:"Confidentialité :",privacyText:"Cette page ne demande ni nom ni coordonnées. Ce brouillon ne téléverse ni ne collecte les réponses ; ne saisissez pas d’informations permettant de vous identifier dans les réponses libres. Avant toute collecte officielle, ajoutez les informations sur la personne responsable, le stockage des données et les contacts.",consent:"J’ai lu les informations ci-dessus et je souhaite continuer librement.",consentError:"Veuillez cocher la case de consentement pour continuer.",start:"Commencer",back:"Retour",next:"Continuer",submit:"Terminer",page:"Page",of:"sur",required:"Veuillez répondre à cette question pour continuer.",multiMark:" (Plusieurs réponses possibles)",twoRequired:"Veuillez sélectionner exactement deux options.",twoMax:"Vous pouvez sélectionner deux options au maximum.",choose:"Veuillez renseigner",other:"Autre (veuillez préciser)",otherPlaceholder:"Veuillez préciser",endScreen:"Merci pour votre temps",endText:"Cette étude s’adresse aux personnes ayant vécu à l’étranger. Le questionnaire s’arrête ici. Merci de votre participation.",thankTitle:"Merci d’avoir partagé votre expérience",thankText:"Vos réponses sont prêtes. Dans ce brouillon, elles sont téléchargées sur cet appareil et ne sont pas envoyées à la personne qui mène l’étude.",download:"Télécharger mes réponses",restart:"Recommencer",footer:"Brouillon d’enquête · Changez de langue en haut de la page",offlineSaved:"Le fichier JSON de vos réponses a été téléchargé.",sent:"Votre réponse a été envoyée.",sendFail:"Connexion au service de collecte impossible. Téléchargez vos réponses et transmettez-les à la personne responsable de l’étude.",missingEndpoint:"Ceci est une version de prévisualisation : aucun service de collecte en ligne n’est configuré.",pages:[
+   {title:"Résidence et contexte de cuisine",desc:"Pour commencer, quelques questions sur votre lieu de résidence et votre environnement culinaire quotidien."},{title:"Ingrédients et défis culinaires",desc:"Ces questions portent sur les ingrédients inconnus et sur l’accès aux ingrédients des plats familiers ou leur adaptation."},{title:"Une expérience concrète de cuisine",desc:"Répondez selon votre expérience. Il est tout à fait possible que vous n’ayez pas d’expérience correspondante."},{title:"Apprentissages et échanges interculturels",desc:"Pour finir, quelques questions sur les échanges culinaires entre personnes de cultures différentes."},{title:"Besoins d’accompagnement et fonctionnalités",desc:"Indiquez quelles fonctions numériques pourraient vous aider à comprendre les ingrédients, faire vos achats ou cuisiner."}],
+  q:{q1:"Avez-vous déjà vécu à l’étranger ?",q2:"Dans quel(s) pays avez-vous vécu ?",q3:"Depuis combien de temps vivez-vous dans votre pays de résidence actuel ou le plus récent ?",q4:"Quelle est votre situation de logement actuelle ?",q5:"De quelles installations de cuisine disposez-vous actuellement ?",q6:"Au cours du dernier mois, à quelle fréquence avez-vous cuisiné pour vous-même ?",q7:"Lorsque vous vivez à l’étranger, à quelle fréquence rencontrez-vous des ingrédients inconnus ou que vous ne savez pas choisir, préparer ou cuisiner ?",q8:"Que faites-vous généralement lorsque vous rencontrez un ingrédient inconnu ? (Plusieurs réponses possibles)",q9:"Avez-vous déjà renoncé à acheter un ingrédient parce que vous ne saviez pas comment l’utiliser ?",q10:"Vous est-il déjà arrivé de ne pas trouver les ingrédients que vous utilisez habituellement pour préparer des plats familiers ou de votre pays d’origine ?",q11:"Lorsque vous ne trouvez pas un ingrédient habituel, que faites-vous généralement ? (Plusieurs réponses possibles)",q12:"Qu’est-ce qui pourrait vous inciter à acheter ou essayer un ingrédient inconnu ? (Plusieurs réponses possibles)",q13:"Avez-vous déjà préparé ou adapté un plat familier ou de votre pays d’origine avec des ingrédients disponibles localement ?",q14:"Décrivez un moment précis où vous avez cuisiné pour vous-même dans votre pays de résidence. Qu’avez-vous préparé et comment ? Avez-vous changé des ingrédients ou des étapes ? Si vous n’avez pas d’expérience de cuisine correspondante, indiquez-le simplement.",q15:"Dans quelle mesure cette expérience a-t-elle influencé votre rapport aux aliments familiers ou votre ressenti concernant la vie dans votre pays de résidence ? Si elle n’a eu aucun effet, indiquez Aucun effet ; sinon, expliquez.",q16:"Avez-vous appris une nouvelle façon d’utiliser un ingrédient ou une méthode de cuisine auprès d’une personne d’une autre culture ?",q17:"Avez-vous déjà présenté ou montré à une personne d’une autre culture comment utiliser un ingrédient ou préparer un plat qui vous est familier ?",q18:"Décrivez une occasion précise où vous avez parlé d’un ingrédient ou préparé un plat avec une personne d’une autre culture. Qu’avez-vous partagé ou appris chacun·e, et cet échange a-t-il changé votre façon de préparer ce plat ? Si vous n’avez pas d’expérience correspondante, indiquez-le.",q19:"Quelles fonctionnalités numériques vous aideraient à acheter, comprendre ou utiliser des ingrédients dans votre pays de résidence ? (Plusieurs réponses possibles)",q20:"Parmi les fonctionnalités ci-dessus, choisissez les deux qui vous seraient les plus utiles.",q21:"À quel moment ou dans quel lieu utiliseriez-vous le plus probablement ces fonctionnalités ? (Plusieurs réponses possibles)",q22:"Lorsque vous consultez une recette ou un guide sur un ingrédient, quelles informations souhaitez-vous surtout voir ? (Plusieurs réponses possibles)"},
+  opts:{abroad:["Je vis actuellement à l’étranger","J’ai vécu à l’étranger par le passé","J’ai seulement voyagé ou séjourné brièvement, sans y vivre","Je n’ai jamais vécu dans un autre pays"],countries:["France","Allemagne","Royaume-Uni","Chine","Espagne","Italie","Belgique","Pays-Bas","Portugal","Suisse","Irlande"],duration:["Moins de 3 mois","3–6 mois","6–12 mois","1–3 ans","Plus de 3 ans","Sans objet"],living:["Je vis seul·e","En colocation avec des personnes de même nationalité","En colocation avec des personnes de nationalités différentes","Résidence étudiante","Avec ma famille","Famille d’accueil","Autre (veuillez préciser)"],kitchen:["Cuisine privée","Cuisine partagée avec des colocataires","Cuisine collective","Pas d’accès à une cuisine","Autre (veuillez préciser)"],frequency:["Presque tous les jours","2 à 4 fois par semaine","Environ une fois par semaine","Moins d’une fois par semaine","Jamais"],freq4:["Souvent","Parfois","Rarement","Jamais"],response:["Faire une recherche en ligne","Chercher une recette ou une vidéo","Demander à des ami·es ou à la famille","Demander à des personnes locales ou au personnel d’un magasin","Me renseigner, puis acheter et essayer","Ne pas l’acheter","Autre (veuillez préciser)"],missing:["L’acheter dans une épicerie spécialisée","Le commander en ligne","Le remplacer par un ingrédient local similaire","Adapter la recette ou omettre l’ingrédient","Renoncer à préparer le plat","Autre (veuillez préciser)"],motivation:["Une recommandation","Savoir comment le cuisiner","Le trouver facilement","Un prix abordable","Sa ressemblance avec des aliments familiers","La curiosité","La disponibilité d’une recette ou d’une vidéo","Autre (veuillez préciser)"],yesFreq:["Souvent","Parfois","Une fois","Jamais"],adapted:["De nombreuses fois","Quelques fois","Une fois","Jamais"],needFeatures:["Suggestions de substitutions locales pour des plats familiers","Recettes proposées à partir des ingrédients dont je dispose","Reconnaissance photo d’ingrédients inconnus, avec leur nom et leurs usages courants","Scanner ou traduire les noms, ingrédients et instructions sur les emballages","Scanner ou traduire les étiquettes de prix et expliquer les unités ou le prix","Comparer les prix à l’unité entre marques ou formats","Instructions de cuisine étape par étape avec images ou vidéo","Expliquer comment les personnes locales utilisent habituellement un ingrédient","Aucune de ces fonctionnalités","Autre (veuillez préciser)"],topNeed:["Substitutions locales pour des plats familiers","Recettes à partir des ingrédients dont je dispose","Reconnaissance photo et informations sur les ingrédients","Scanner ou traduire les emballages alimentaires","Scanner ou traduire les étiquettes de prix et les unités","Comparer les prix à l’unité","Instructions de cuisine étape par étape","Informations sur les usages locaux des ingrédients"],needMoments:["Lors de la planification d’un menu ou d’une liste de courses","En choisissant des ingrédients dans un supermarché ou une épicerie","En lisant un emballage, une étiquette de prix ou des instructions","À la maison, pendant la préparation ou la cuisine","En essayant un plat local ou un ingrédient inconnu","En partageant ou en discutant de nourriture avec quelqu’un","Autre (veuillez préciser)"],recipeInfo:["Photos et noms locaux des ingrédients","Suggestions d’ingrédients familiers ou de substitutions disponibles localement","Images claires ou vidéo pour chaque étape","Durée et difficulté de préparation","Portions, quantités et conversions de mesures","Coût estimé ou prix à l’unité","Conseils de conservation ou de préparation des ingrédients","Contexte culturel du plat ou de l’ingrédient","Autre (veuillez préciser)"]}
+ }
+};
+
+const questions=[
+ {id:"q1",type:"radio",key:"abroad",required:true},{id:"q2",type:"checkbox",key:"countries",required:true,other:true},{id:"q3",type:"radio",key:"duration",required:true},{id:"q4",type:"radio",key:"living",required:true,other:true},{id:"q5",type:"radio",key:"kitchen",required:true,other:true},{id:"q6",type:"radio",key:"frequency",required:true},
+ {id:"q7",type:"radio",key:"freq4",required:true},{id:"q8",type:"checkbox",key:"response",required:true,other:true},{id:"q9",type:"radio",key:"freq4",required:true},{id:"q10",type:"radio",key:"freq4",required:true},{id:"q11",type:"checkbox",key:"missing",required:true,other:true},{id:"q12",type:"checkbox",key:"motivation",required:true,other:true},
+ {id:"q13",type:"radio",key:"adapted",required:true},{id:"q14",type:"textarea",required:true},{id:"q15",type:"textarea",required:true},{id:"q16",type:"radio",key:"yesFreq",required:true},{id:"q17",type:"radio",key:"yesFreq",required:true},{id:"q18",type:"textarea",required:true},{id:"q19",type:"checkbox",key:"needFeatures",required:true,other:true},{id:"q20",type:"checkbox",key:"topNeed",required:true},{id:"q21",type:"checkbox",key:"needMoments",required:true,other:true},{id:"q22",type:"checkbox",key:"recipeInfo",required:true,other:true}
+];
+for(const item of Object.values(copy))for(const key of ["living","kitchen","response","missing","motivation","needFeatures","needMoments","recipeInfo"])item.opts[key].pop();
+const groups=[[0,1,2,3,4,5],[6,7,8,9,10,11],[12,13,14],[15,16,17],[18,19,20,21]];
+let lang="zh",pageIndex=-1,answers={};
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+function text(key){return copy[lang][key]}
+function setLanguage(next){
+ const previous=lang;
+ if(pageIndex>=0&&pageIndex<groups.length)capturePage();
+ if(next!==previous){
+  for(const q of questions){
+   if(!q.key||!Array.isArray(answers[q.id]))continue;
+   const from=copy[previous].opts[q.key],to=copy[next].opts[q.key];
+   answers[q.id]=answers[q.id].map(value=>{if(value==="__other__")return value;const index=from.indexOf(value);return index>=0&&to[index]!==undefined?to[index]:value});
+  }
+ }
+ lang=next;document.documentElement.lang=({zh:"zh-CN",en:"en",fr:"fr"})[lang];
+ $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;el.textContent=copy[lang][k]??""});
+ $$(".lang").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.lang===lang)));
+ renderSteps();if(pageIndex>=0&&pageIndex<groups.length)renderPage();
+}
+function renderSteps(){
+ const list=copy[lang].pages;$("#steps").innerHTML=list.map((p,i)=>`<button type="button" class="step ${i===pageIndex?"active":""} ${i<pageIndex?"done":""}" data-page="${i}" aria-current="${i===pageIndex?"step":"false"}"><span class="num">${i<pageIndex?"✓":i+1}</span><span>${escapeHtml(p.title)}</span></button>`).join("");
+ $$("#steps [data-page]").forEach(button=>button.addEventListener("click",()=>{if(pageIndex<0||pageIndex>=groups.length)return;capturePage();pageIndex=Number(button.dataset.page);renderPage()}));
+}
+function renderPage(){
+ const p=copy[lang].pages[pageIndex];$("#pageKicker").textContent=copy[lang].page+" "+(pageIndex+1);$("#pageTitle").textContent=p.title;$("#pageDescription").textContent=p.desc;$("#pageCount").textContent=`${pageIndex+1} ${copy[lang].of} ${groups.length}`;
+ $("#backBtn").textContent=copy[lang].back;$("#nextBtn").textContent=pageIndex===groups.length-1?copy[lang].submit:copy[lang].next;
+ $("#fields").innerHTML=groups[pageIndex].map(idx=>renderQuestion(questions[idx])).join("");
+ restoreValues();renderSteps();window.scrollTo({top:0,behavior:"smooth"});
+}
+function renderQuestion(q){
+ let title=copy[lang].q[q.id];if(q.type==="checkbox"&&!title.includes(copy[lang].multiMark))title+=copy[lang].multiMark;const opts=q.key?copy[lang].opts[q.key]:[];let body="";
+ if(q.type==="radio"||q.type==="checkbox"){
+   body=`<div class="choices">${opts.map((o,i)=>choice(q.id,o,q.type,i)).join("")}${q.other?choice(q.id,"__other__",q.type,"other"):""}</div>`;
+   if(q.other)body+=`<input class="text-input other-input" data-other-for="${q.id}" type="text" placeholder="${escapeAttr(copy[lang].otherPlaceholder)}" aria-label="${escapeAttr(copy[lang].other)}">`;
+ }else body=`<textarea name="${q.id}" placeholder="${escapeAttr(copy[lang].choose)}" aria-label="${escapeAttr(title)}"></textarea>`;
+ return `<div class="field" data-field="${q.id}"><label class="field-label">${escapeHtml(title)}${q.required?'<span class="required" aria-hidden="true">*</span>':''}</label>${q.id==="q15"?`<p class="hint">${escapeHtml(lang==="zh"?"可选回答。":lang==="en"?"Optional.":"Facultatif.")}</p>`:""}${body}<div class="error">${escapeHtml(q.id==="q20"?copy[lang].twoRequired:copy[lang].required)}</div></div>`;
+}
+function choice(qid,label,type,index){
+ const value=index==="other"?"__other__":label,checked=(answers[qid]||[]).includes(value)?"checked":"";
+ const display=index==="other"?copy[lang].other:label;return `<label class="choice"><input type="${type}" name="${qid}" value="${escapeAttr(value)}" ${checked}><span>${escapeHtml(display)}</span></label>`;
+}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function escapeAttr(s){return escapeHtml(s)}
+function restoreValues(){
+ for(const qid of groups[pageIndex].map(i=>questions[i].id)){
+  const q=questions.find(x=>x.id===qid);if(q.type==="textarea"){$(`[name="${qid}"]`).value=answers[qid]||"";continue}
+  if(q.other){const box=$(`[data-other-for="${qid}"]`);if(box)box.value=answers[qid+"_other"]||""}
+ }
+}
+function capturePage(){
+ for(const idx of groups[pageIndex]){
+  const q=questions[idx];if(q.type==="textarea"){answers[q.id]=$(`[name="${q.id}"]`).value.trim();continue}
+  answers[q.id]=$$(`input[name="${q.id}"]:checked`).map(x=>x.value);
+  if(q.other){const other=$(`[data-other-for="${q.id}"]`);answers[q.id+"_other"]=other?.value.trim()||""}
+ }
+}
+function validatePage(){
+ let valid=true;
+ for(const idx of groups[pageIndex]){
+  const q=questions[idx];if(!q.required)continue;
+  const field=$(`[data-field="${q.id}"]`);let ok=false;
+  if(q.type==="textarea")ok=Boolean($(`[name="${q.id}"]`).value.trim());else if(q.id==="q20")ok=$$(`input[name="${q.id}"]:checked`).length===2;else ok=$$(`input[name="${q.id}"]:checked`).length>0;
+  if(q.other&&answers[q.id]?.includes("__other__")&&!$(`[data-other-for="${q.id}"]`).value.trim())ok=false;
+  field.classList.toggle("invalid",!ok);if(!ok)valid=false;
+ }
+ return valid;
+}
+function showEnding(eligible){
+ $("#welcomeView").classList.add("hidden");$("#formView").classList.add("hidden");$("#endingView").classList.remove("hidden");
+ $("#steps").innerHTML="";
+ if(!eligible){$("#endingView").innerHTML=`<div class="ending"><div class="icon">♡</div><h2>${escapeHtml(copy[lang].endScreen)}</h2><p>${escapeHtml(copy[lang].endText)}</p></div>`;return}
+ $("#endingView").innerHTML=`<div class="ending"><div class="icon">✦</div><h2>${escapeHtml(copy[lang].thankTitle)}</h2><p>${escapeHtml(copy[lang].thankText)}</p><button class="btn primary" id="downloadBtn" type="button">${escapeHtml(copy[lang].download)}</button><button class="btn" id="restartBtn" type="button" style="margin-left:8px">${escapeHtml(copy[lang].restart)}</button></div>`;
+ $("#downloadBtn").addEventListener("click",downloadAnswers);$("#restartBtn").addEventListener("click",()=>location.reload());
+ if(SUBMISSION_ENDPOINT)sendAnswers();
+}
+function buildPayload(){const clean={...answers};for(const q of questions){if(q.other&&clean[q.id])clean[q.id]=clean[q.id].filter(v=>v!=="__other__").concat(clean[q.id].includes("__other__")&&clean[q.id+"_other"]?[clean[q.id+"_other"]]:[])}return {survey:"Food, Belonging & Life Abroad",language:lang,submittedAt:new Date().toISOString(),answers:clean}}
+function downloadAnswers(){const blob=new Blob([JSON.stringify(buildPayload(),null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="food-belonging-survey-response.json";a.click();URL.revokeObjectURL(a.href);toast(copy[lang].offlineSaved)}
+async function sendAnswers(){try{const res=await fetch(SUBMISSION_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(buildPayload())});if(!res.ok)throw Error("submit failed");$(".ending p").textContent=copy[lang].sent}catch(e){$(".ending p").textContent=copy[lang].sendFail}}
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),3500)}
+
+$$(".lang").forEach(b=>b.addEventListener("click",()=>setLanguage(b.dataset.lang)));
+$("#startBtn").addEventListener("click",()=>{$("#welcomeView").classList.add("hidden");$("#formView").classList.remove("hidden");pageIndex=0;renderPage()});
+$("#backBtn").addEventListener("click",()=>{capturePage();if(pageIndex>0){pageIndex--;renderPage()}else{$("#formView").classList.add("hidden");$("#welcomeView").classList.remove("hidden");renderSteps()}});
+$("#fields").addEventListener("change",e=>{if(e.target.matches('input[name="q20"]')&&$$('input[name="q20"]:checked').length>2){e.target.checked=false;toast(copy[lang].twoMax)}});
+$("#nextBtn").addEventListener("click",()=>{capturePage();if(!validatePage()){const first=$(".field.invalid");first?.scrollIntoView({behavior:"smooth",block:"center"});return}if(pageIndex===0&&[copy[lang].opts.abroad[2],copy[lang].opts.abroad[3]].includes(answers.q1?.[0])){showEnding(false);return}if(pageIndex<groups.length-1){pageIndex++;renderPage()}else showEnding(true)});
+setLanguage(lang);
+</script>
+</body>
+</html>
