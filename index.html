@@ -254,7 +254,7 @@ function renderQuestion(q){
    body=`<div class="choices">${opts.map((o,i)=>choice(q.id,o,q.type,i)).join("")}${q.other?choice(q.id,"__other__",q.type,"other"):""}</div>`;
    if(q.other)body+=`<input class="text-input other-input" data-other-for="${q.id}" type="text" placeholder="${escapeAttr(copy[lang].otherPlaceholder)}" aria-label="${escapeAttr(copy[lang].other)}">`;
  }else body=`<textarea name="${q.id}" placeholder="${escapeAttr(copy[lang].choose)}" aria-label="${escapeAttr(title)}"></textarea>`;
- return `<div class="field" data-field="${q.id}"><label class="field-label">${escapeHtml(title)}${q.required?'<span class="required" aria-hidden="true">*</span>':''}</label>${q.id==="q15"?`<p class="hint">${escapeHtml(lang==="zh"?"可选回答。":lang==="en"?"Optional.":"Facultatif.")}</p>`:""}${body}<div class="error">${escapeHtml(q.id==="q20"?copy[lang].twoRequired:copy[lang].required)}</div></div>`;
+ return `<div class="field" data-field="${q.id}"><label class="field-label">${escapeHtml(title)}${q.required?'<span class="required" aria-hidden="true">*</span>':''}</label>${body}<div class="error">${escapeHtml(q.id==="q20"?copy[lang].twoRequired:copy[lang].required)}</div></div>`;
 }
 function choice(qid,label,type,index){
  const value=index==="other"?"__other__":label,checked=(answers[qid]||[]).includes(value)?"checked":"";
